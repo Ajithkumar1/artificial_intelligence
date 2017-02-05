@@ -62,11 +62,18 @@ void Hebb::check_hebb()
 		for(int j=1;j<=nic;j++)
 		{
 			w_new[j]=w[j]+(x[i][j]*y[i]);
-			cout<<"Weight_loop :"<<j<<"="<<w[j]<<endl;
+			//cout<<"Weight_loop :"<<j<<"="<<w[j]<<endl;
+//			cout<<"input :"<<i<<","<<j<<"="<<x[i][j]<<endl;
+//			cout<<"output :"<<i<<"="<<y[i]<<endl;
 			w[i]=w_new[i];
-			b=b_new;
 		}
 		b_new =b+y[i];
+		for(int k=1;k<=nic;k++)
+		{
+		cout<<"Weight_loop :"<<k<<"="<<w[k]<<endl;
+		}
+		cout<<"bias :"<<b<<endl;
+		b=b_new;
 	}
 
 	for(int i=1;i<=nic;i++)

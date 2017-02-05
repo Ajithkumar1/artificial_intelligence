@@ -70,14 +70,12 @@ float ActivationFunction::arctan_derivative(float x)
 
 float ActivationFunction::soft_sign(float x)
 {
-	int a = abs(-11);
 	float f= x/(1+ abs(x));
 	return f;
 }
 
 float ActivationFunction::soft_sign_derivative(float x)
 {
-	int a = abs(-11);
 	float f= 1/((1+ (abs(x)))*(1+ (abs(x))));
 	return f;
 }
