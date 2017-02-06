@@ -69,7 +69,7 @@ Fbool::Fbool()
 
 Fbool Fbool::operator&&(Fbool var)
 {
-  double temp;
+ //double temp;
   if (this->probability < var.probability)
     return Fbool(this->probability);
   else

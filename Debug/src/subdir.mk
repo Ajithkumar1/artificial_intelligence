@@ -8,6 +8,7 @@ CPP_SRCS += \
 ../src/back_propagation.cpp \
 ../src/fbool.cpp \
 ../src/fset.cpp \
+../src/genetic_algorithm.cpp \
 ../src/hebb.cpp \
 ../src/main.cpp \
 ../src/perceptron.cpp 
@@ -17,6 +18,7 @@ OBJS += \
 ./src/back_propagation.o \
 ./src/fbool.o \
 ./src/fset.o \
+./src/genetic_algorithm.o \
 ./src/hebb.o \
 ./src/main.o \
 ./src/perceptron.o 
@@ -26,6 +28,7 @@ CPP_DEPS += \
 ./src/back_propagation.d \
 ./src/fbool.d \
 ./src/fset.d \
+./src/genetic_algorithm.d \
 ./src/hebb.d \
 ./src/main.d \
 ./src/perceptron.d 

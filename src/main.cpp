@@ -9,12 +9,15 @@
 #include "perceptron.h"
 #include "back_propagation.h"
 #include "hebb.h"
+#include "genetic_algorithm.h"
 using namespace std;
 int main()
 {
+	GeneticAlgorithm g;
 	Hebb h;
 	Perceptron p;
 	BackPropagation b;
+	g.check_genetic_algorithm();
 	h.check_hebb();
 	p.check_perceptron();
 	b.check_propagation();

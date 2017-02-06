@@ -1,5 +1,6 @@
 src/main.o: ../src/main.cpp ../src/perceptron.h \
- ../src/activation_function.h ../src/back_propagation.h ../src/hebb.h
+ ../src/activation_function.h ../src/back_propagation.h ../src/hebb.h \
+ ../src/genetic_algorithm.h
 
 ../src/perceptron.h:
 
@@ -8,3 +9,5 @@ src/main.o: ../src/main.cpp ../src/perceptron.h \
 ../src/back_propagation.h:
 
 ../src/hebb.h:
+
+../src/genetic_algorithm.h:
