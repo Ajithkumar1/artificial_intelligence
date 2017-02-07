@@ -15,6 +15,13 @@ using namespace std;
 
 void BackPropagation::check_propagation() {
 	int ni,no;
+
+	cout<<"No. of inputs";
+	cin>>ni;
+
+	cout<<"No. of targets";
+	cin>>no;
+
 	int test = 0;
 	ActivationFunction af;
 	float x[ni+1];
@@ -34,18 +41,16 @@ void BackPropagation::check_propagation() {
 	float del_vij[ni][ni];
 	float error_range;
 
-	cout<<"No. of inputs";
-	cin>>ni;
 
+    cout<<"Enter the training inputs";
 	x[0]=1;
 	z[0]=1;
 	for(int i=1;i<=ni;i++)
 	{
 		cin>>x[i];
 	}
-	cout<<"No. of targets";
-	cin>>no;
 
+	cout<<"Enter the targets";
 	for(int i=1;i<=no;i++)
 	{
 		cin>>t[i];
@@ -208,6 +213,62 @@ void BackPropagation::check_propagation() {
 		//cout<<"Test:"<<test<<endl;
 	}while(test == 1);
 	cout<<"Trained";
-	cout<<w[0][0];
+	cout<<w[0][0]<<endl;
+
+	for(int j=0;j<=ni;j++)
+	{
+		for(int k=1;k<=no;k++)
+		{
+		//	w[j][k]=w[j][k]+del_w[j][k];
+			cout <<"w_weight "<<j<<k<<","<<w[j][k]<<endl;
+		}
+	}
+
+	while(1)
+	{
+
+	    cout<<"Enter the inputs";
+		x[0]=1;
+		z[0]=1;
+		for(int i=1;i<=ni;i++)
+		{
+			cin>>x[i];
+		}
+
+		//after training
+		z[0]=1;
+		z_in[0]=0;//check here
+
+		for(int j=1;j<=ni;j++)
+		{
+			for(int i=1;i<=ni;i++)
+			{
+				summation += (x[i]*v[i][j]);//summation to zero
+			}
+			z_in[j]=v[0][j]+summation;
+			z[j]=af.sigmoid(z_in[j]);
+		}
+
+		//upper layer starts
+
+
+
+		summation = 0;
+		for(int k=1;k<=no;k++)
+		{
+			for(int j=1;j<=ni;j++)
+			{
+				summation += (z[j]*w[j][k]);
+			}
+			y_in[k]=w[0][k]+summation;
+			y[k]=af.sigmoid(y_in[k]);
+		}
+		//upper layer ends
+		//test starts
+		for(int p=1;p<=no;p++)
+		{
+			cout<<"output:"<<p<<","<<y[p]<<endl;
+		}
+	}
 
 }

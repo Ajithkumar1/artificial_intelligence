@@ -6,20 +6,12 @@
  */
 
 
-
-
 #include "genetic_algorithm.h"
-
-
-
 
 char **currentGeneration, **nextGeneration;
 char *modelOrganism;
 int *organismsFitnesses;
 int totalOfFitnesses;
-
-
-
 
 
 void GeneticAlgorithm::check_genetic_algorithm(){

@@ -17,10 +17,13 @@ int main()
 	Hebb h;
 	Perceptron p;
 	BackPropagation b;
+
+	b.check_propagation();
+
 	g.check_genetic_algorithm();
 	h.check_hebb();
 	p.check_perceptron();
-	b.check_propagation();
+
 return 0;
 }
 
