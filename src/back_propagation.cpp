@@ -22,7 +22,7 @@ void BackPropagation::check_propagation() {
 	cout<<"No. of targets";
 	cin>>no;
 
-	int test = 0;
+	int test[no+1];
 	ActivationFunction af;
 	float x[ni+1];
 	float t[no+1];
@@ -40,6 +40,7 @@ void BackPropagation::check_propagation() {
 	float del_j[ni];
 	float del_vij[ni][ni];
 	float error_range;
+	int check=1;
 
 
     cout<<"Enter the training inputs";
@@ -54,6 +55,7 @@ void BackPropagation::check_propagation() {
 	for(int i=1;i<=no;i++)
 	{
 		cin>>t[i];
+		test[i]=0;
 	}
 
 	for(int i=0;i<=ni;i++)
@@ -75,6 +77,7 @@ void BackPropagation::check_propagation() {
 	}
 
 	do{
+		check = 1;
 		//cout<<"do entered"<<endl;
 
 		z[0]=1;
@@ -121,20 +124,20 @@ void BackPropagation::check_propagation() {
 			{
 				if(t[k]>y[k])error_range=t[k]-y[k];
 				else error_range=y[k]-t[k];
-				if(error_range>0.01)
+				if(error_range>0.001)
 				{
-					test = 1;
+					test[k] = 0;
 					cout<<"Not equal"<<endl;
 				}
 				else
 				{
 					cout<<"Equal"<<endl;
-					test = 0;
+					test[k] = 1;
 				}
 			}
 			else{
 				cout<<"Equal"<<endl;
-				test = 0;
+				test[k] = 1;
 			}
 		}
 		//test ends
@@ -211,7 +214,14 @@ void BackPropagation::check_propagation() {
 			}
 		}
 		//cout<<"Test:"<<test<<endl;
-	}while(test == 1);
+
+		for(int i=1;i<=no;i++)
+		{
+			check *=test[i];
+		}
+		cout<<"check :"<<check<<endl;
+
+	}while(check == 0);
 	cout<<"Trained";
 	cout<<w[0][0]<<endl;
 
