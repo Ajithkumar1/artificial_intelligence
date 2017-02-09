@@ -234,6 +234,31 @@ void BackPropagation::check_propagation() {
 		}
 	}
 
+	//pointer test starts
+	float *weight_upper;
+	weight_upper= new float[(ni+1)*(ni)];
+
+	for(int j=0;j<=ni;j++)
+	{
+		for(int k=1;k<=no;k++)
+		{
+			weight_upper[j*ni+k]=w[j][k];
+		//		cout <<"v_weight "<<i<<j<<","<<v[i][j]<<endl;
+
+		}
+	}
+
+	for(int j=0;j<=ni;j++)
+	{
+		for(int k=1;k<=no;k++)
+		{
+		//	w[j][k]=w[j][k]+del_w[j][k];
+			cout <<"w_weight_pointer "<<j<<k<<","<<weight_upper[j*ni+k]<<endl;
+		}
+	}
+
+	//pointer test ends
+
 	while(1)
 	{
 
