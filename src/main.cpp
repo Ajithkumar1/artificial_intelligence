@@ -92,7 +92,7 @@ static string *temp_str;
 static double *final_value;
 int num_possibilities;
 int iterate = 0;
-double process_value;
+double *process_value;
 static double great;
 static double temp_great;
 
@@ -127,7 +127,7 @@ static void all_possibilities(int d, string str, int *sets) {
   	// strs << vec_double[d][k];
   	// string str_temp = strs.str();
 	  string str_temp = boost::lexical_cast<std::string>(member[d][k].getName());
-	  great = (great > member[d][k].getValue(process_value))?great:member[d][k].getValue(process_value);
+	  great = (great > member[d][k].getValue(process_value[d]))?great:member[d][k].getValue(process_value[d]);
 
 	  temp_great = great;
 //  	string str_temp = to_string(vec_double[d][k]);
@@ -152,7 +152,7 @@ static void get_value(int d, string str, int *sets) {
   	// strs << vec_double[d][k];
   	// string str_temp = strs.str();
 	  string str_temp = boost::lexical_cast<std::string>(member[d][k].getName());
-	  great = (great > member[d][k].getValue(process_value))?member[d][k].getValue(process_value):great;
+	  great = (great > member[d][k].getValue(process_value[d]))?member[d][k].getValue(process_value[d]):great;
 
 	  temp_great = great;
 //  	string str_temp = to_string(vec_double[d][k]);
@@ -281,9 +281,12 @@ int main()
 		output_member[i].setName(temp_sName);
 	}
 
-	cout<<"Enter the Process Value"<<endl;
-	cin>>process_value;
-
+	process_value = new double[in_num];
+	for(int i=0;i<in_num;i++)
+	{
+		cout<<"Enter the Process Value for "<<i<<endl;
+		cin>>process_value[i];
+	}
 
 //
 //	rules rule;
