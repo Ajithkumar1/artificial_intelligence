@@ -68,6 +68,11 @@ public:
 		else
 			return 0;
 	}
+	double max_mebership(double value)
+	{
+		return ((value*(dMiddle - dLeft))+dLeft);
+
+	}
 	char* getName() const
 	{
 		//cout<<sName<<endl;
@@ -242,6 +247,40 @@ int main()
 		}
 	}
 
+	int output_sets;
+	cout<<"Enter number of sets";
+	cin>>output_sets;
+	MemberShip output_member[output_sets];
+	for(int i=0;i<output_sets;i++)
+	{
+		double temp_dLeft;
+		double temp_dRight;
+		double temp_dmiddle_left;
+		double temp_dmiddle_right;
+		char temp_cType;
+		char temp_sName[10];
+		cout<<"dLeft, dRight, dmiddle_left, dmiddle_right, cType, sName for output"<<endl;
+
+		cin>>temp_dLeft;
+		cin>>temp_dRight;
+		cin>>temp_dmiddle_left;
+		cin>>temp_dmiddle_right;
+		cin>>temp_cType;
+		cin>>temp_sName;
+
+		//			cout<<m[i][j].dLeft;
+		//			cout<<m[i][j].dRight;
+		//			cout<<m[i][j].dmiddle_left;
+		//			cout<<m[i][j].dmiddle_right;
+		//			cout<<m[i][j].cType;
+		//			cout<<m[i][j].sName;
+		//cout<<sizeof(member[i][j])<<endl;
+		output_member[i].setInterval(temp_dLeft,temp_dRight);
+		output_member[i].setMiddle(temp_dmiddle_left,temp_dmiddle_left);
+		output_member[i].setType(temp_cType);
+		output_member[i].setName(temp_sName);
+	}
+
 	cout<<"Enter the Process Value"<<endl;
 	cin>>process_value;
 
@@ -305,7 +344,35 @@ int main()
 	for(int i=0; i<iterate; i++)
 	{
 		cout<<temp_str[i]<<"="<<final_value[i]<<endl;
+		out.insert( temp_str[i],final_value[i]);
 	}
+
+	double max_member = 0;
+	int great_index = 0;
+	for(int i=0; i<iterate; i++)
+	{
+		if(max_member>final_value[i])
+		{
+			max_member = max_member*1;
+			great_index = i;
+		}
+		else{
+			max_member = final_value[i];
+		}
+	}
+
+
+	cout<<"output fuzzy value "<<temp_str[great_index]<<" = "<<max_member<<endl;
+
+	int set_indicator;
+	for(int i=0;i<output_sets;i++)
+	{
+		if(temp_str[great_index]==output_member[i].getName())
+		{
+			set_indicator = i;
+		}
+	}
+	cout<<"Output value"<<output_member[set_indicator].max_mebership(max_member)<<endl;
 
 //	cout<<"output["<<temp<<"] = "<<output[temp].getval()<<"\n";
 
