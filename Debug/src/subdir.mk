@@ -8,6 +8,7 @@ CPP_SRCS += \
 ../src/back_propagation.cpp \
 ../src/fbool.cpp \
 ../src/fset.cpp \
+../src/fuzzy.cpp \
 ../src/genetic_algorithm.cpp \
 ../src/hebb.cpp \
 ../src/main.cpp \
@@ -18,6 +19,7 @@ OBJS += \
 ./src/back_propagation.o \
 ./src/fbool.o \
 ./src/fset.o \
+./src/fuzzy.o \
 ./src/genetic_algorithm.o \
 ./src/hebb.o \
 ./src/main.o \
@@ -28,6 +30,7 @@ CPP_DEPS += \
 ./src/back_propagation.d \
 ./src/fbool.d \
 ./src/fset.d \
+./src/fuzzy.d \
 ./src/genetic_algorithm.d \
 ./src/hebb.d \
 ./src/main.d \
