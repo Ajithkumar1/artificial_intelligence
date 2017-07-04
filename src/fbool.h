@@ -25,6 +25,7 @@ public:
   Fbool operator||(bool);
   Fbool operator!();
 };
+
 Fbool operator&&(bool, Fbool);
 Fbool operator||(bool, Fbool);
 
